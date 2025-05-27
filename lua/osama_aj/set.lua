@@ -5,6 +5,8 @@ vim.opt.relativenumber = true
 
 vim.opt.mouse = 'a'
 
+vim.g.have_nerd_font = true
+
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
@@ -16,6 +18,8 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
+
+vim.o.breakindent = true
 
 vim.opt.smartindent = true
 
@@ -46,4 +50,11 @@ vim.opt.foldcolumn = "1"
 vim.opt.foldtext = ""
 vim.opt.foldlevel = 99
 -- vim.opt.foldlevelstart = 1
-vim.opt.foldnestmax = 4
+-- vim.o.foldnestmax = 4
+
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
+vim.o.inccommand = 'split'
+vim.o.cursorline = true
+
