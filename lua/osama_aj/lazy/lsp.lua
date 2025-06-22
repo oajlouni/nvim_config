@@ -294,6 +294,9 @@ local lsp_plugins = {
                     args = { "fo", "-s", "4" },
                     --stdin = true,
                 },
+                jq = {
+                    args = { "--indent", "4" },
+                },
             },
 
             formatters_by_ft = {
