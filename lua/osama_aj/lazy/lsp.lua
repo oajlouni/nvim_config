@@ -369,6 +369,11 @@ local lsp_plugins = {
                 -- See :h blink-cmp-config-keymap for defining your own keymap
                 preset = "default",
 
+                -- this is causing tab to jump to random places when in Insert mode,
+                -- and it's super annoying.
+                ['<tab>'] = {},
+                ['<s-tab>'] = {},
+
                 -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
                 --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
             },
