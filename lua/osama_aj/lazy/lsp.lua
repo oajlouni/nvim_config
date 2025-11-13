@@ -24,8 +24,8 @@ local lsp_plugins = {
             -- Automatically install LSPs and related tools to stdpath for Neovim
             -- Mason must be loaded before its dependents so we need to set it up here.
             -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
-            { "williamboman/mason.nvim", opts = {} },
-            "williamboman/mason-lspconfig.nvim",
+            { "mason-org/mason.nvim", opts = {} },
+            "mason-org/mason-lspconfig.nvim",
             "WhoIsSethDaniel/mason-tool-installer.nvim",
 
             -- Useful status updates for LSP.
@@ -185,9 +185,16 @@ local lsp_plugins = {
             there doesn't seem to be a need to specify it in 
             the list of servers below.
             ]]
-            require("lspconfig").clangd.setup({
-                args = "--clang-tidy",
-            })
+            vim.lsp.config['clangd'] = {
+                cmd = { "clangd" ,  "--clang-tidy" }
+            }
+            vim.lsp.enable('clangd')
+
+            vim.lsp.config['superhtml'] = {
+                cmd = { "superhtml", "lsp" },
+                filetypes = { "html", "shtml", "htm" }
+            }
+            vim.lsp.enable('superhtml')
 
             --[[ 
             language servers go here
@@ -303,6 +310,9 @@ local lsp_plugins = {
                 lua = { "stylua" },
                 json = { "jq" },
                 xml = { "xmlstarlet" },
+                html = { "superhtml" },
+                shtml = { "superhtml" },
+                htm = { "superhtml" }
 
                 -- Conform can also run multiple formatters sequentially
                 -- python = { "isort", "black" },
